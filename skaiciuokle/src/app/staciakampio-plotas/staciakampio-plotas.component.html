@@ -1,0 +1,20 @@
+<div class="card mb-3">
+    <div class="card-header">Stačiakampio ploto skaičiavimas</div>
+    <div class="card-body">
+       <div class="mb-3">
+           <label class="form-label">Įveskite plotį:</label>
+           <input type="number" class="form-control" [(ngModel)]="plotis">
+       </div>
+       <div class="mb-3">
+        <label class="form-label">Įveskite ilgį:</label>
+        <input type="number" class="form-control" [(ngModel)]="ilgis">
+       </div>
+       <button class="btn btn-success mb-3" (click)="skaiciuotiPlota()">Skaičiuotu</button>
+       <hr>
+       <div class="mb-3">
+           <label class="form-label">Stačiakampio plotas</label>
+           <input type="number" class="form-control" [(ngModel)]="plotas" readonly>
+       </div>
+
+    </div>
+</div>

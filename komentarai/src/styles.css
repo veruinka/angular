@@ -1,0 +1,12 @@
+.dropdown{
+    display: inline-block;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+    border: 1px solid #ff0000;
+}
+
+input.ng-pending{
+    border: 1px solid #0000ff;
+}

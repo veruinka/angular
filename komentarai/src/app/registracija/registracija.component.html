@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-header">Registracijos forma</div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #form="ngForm">
+                        <div class="mb-3">
+                            <label class="form-label">Įveskite vardą</label>
+                            <input type="text" class="form-control" ngModel name="name" required  #name="ngModel" [(ngModel)]="vardas" >
+                         
+                            <span *ngIf="!name.valid && name.touched" class="help-block">Įvestas neteisingas vardas</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Įveskite el. pašto adresą</label>
+                            <input type="text" class="form-control" ngModel name="email" placeholder="El pašto formatas: vardas@domenas.lt" required email usedEmail #email="ngModel">
+                            <span *ngIf="!email.valid && email.touched">
+                                <span *ngIf="email.errors.required" class="help-block">Neįvestas</span>
+                                <span *ngIf="email.errors.UsedEmail" class="help-block">{{ email.errors.message }}</span>
+                            </span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Įveskite amžių</label>
+                            <input type="number" class="form-control" ngModel name="age" required [min]="minMetai"  #age="ngModel">
+                            <span *ngIf="!age.valid && age.touched" class="help-block">Minimalus amžius 16 metų</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Įveskite slaptažodį</label>
+                            <input type="text" class="form-control" ngModel name="password" required>
+                            <button class="btn btn-info" type="button" (click)="randomPassword()"> Atsitiktinis slaptažodis</button>
+                        </div>
+                        <textarea name="aprasymas" ngModel #aprasymas="ngModel" class="form-control"></textarea>
+                        <div class="mb-3">
+                            <label class="form-label">Lytis</label>
+                            <select class="form-control"  ngModel name="gender" required>
+                                <option value="0">Vyras</option>
+                                <option value="1">Moteris</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lytis:</label><br>
+                            <input type="radio" name="sex" ngModel value="Vyras" > Vyras <br>
+                            <input type="radio" name="sex" ngModel value="Moteris" > Moteris <br>
+                        </div>
+                        <button class="btn btn-success"  type="submit">Registruotis</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
